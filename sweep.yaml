@@ -1,0 +1,41 @@
+# Sweep AI turns bugs & feature requests into code changes (https://sweep.dev)
+# For details on our config file, check out our docs at https://docs.sweep.dev/usage/config
+
+# This setting contains a list of rules that Sweep will check for. If any of these rules are broken in a new commit, Sweep will create an pull request to fix the broken rule.
+rules:
+  - "All new business logic should have corresponding unit tests."
+  - "Refactor large functions to be more modular."
+  - "Add docstrings to all functions and file headers."
+  - "All docstrings and comments should be up to date."
+  - "Parent folder/directory of all modified files should have a README.md file. If not, create one. It should document the code module represented by the collection of files within the folder/directory."
+  - "All test methods should be moved to `ProposalBot/tests`, and placed in a directory structure that mirrors the structure of the code being tested."
+
+# This is the branch that Sweep will develop from and make pull requests to. Most people use 'main' or 'master' but some users also use 'dev' or 'staging'.
+branch: 'main'
+
+# By default Sweep will read the logs and outputs from your existing Github Actions. To disable this, set this to false.
+gha_enabled: True
+
+# This is the description of your project. It will be used by sweep when creating PRs. You can tell Sweep what's unique about your project, what frameworks you use, or anything else you want.
+#
+# Example:
+#
+# description: sweepai/sweep is a python project. The main api endpoints are in sweepai/api.py. Write code that adheres to PEP8.
+description: "ProposalBot is a python 3.11 project. Write code that adheres to PEP8. For string concatenation use formatted strings. ProposalBot, a comprehensive solution designed to automate and streamline the proposal generation process. Leveraging advanced technologies and integrations with popular platforms such as Airtable, SharePoint, and Slack, ProposalBot-02 aims to enhance productivity and efficiency in creating detailed, customized proposals."
+
+docs:
+  salesforce: ["https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest", "We use Salesforce to interact with the Salesforce API for managing opportunities and stages."]
+  powerpoint: ["https://python-pptx.readthedocs.io/en/latest", "We use python-pptx to generate PDF files from PowerPoint PPTX files."]
+  sharepoint: ["https://shareplum.readthedocs.io/en/latest", "We use SharePlum to interact with SharePoint for file management."]
+  slack: ["https://slack.dev/python-slack-sdk", "We use the Python Slack SDK to interact with the Slack API for sending notifications and messages."]
+  pyairtable: ["https://pyairtable.readthedocs.io/en/stable/api.html", "We use pyairtable to interact with the Airtable API for getting historical proposal, client, and project data."]
+  bubble: ["https://manual.bubble.io/core-resources/api", "We use the Bubble API and Bubble Data API to interact with our Buble application database, which includes tables such as: Proposals, Pages, Transcripts, etc."]
+  automerge-action: ["https://github.com/marketplace/actions/merge-pull-requests-automerge-action", "We use the automerge-action to automatically merge pull requests that include the 'automerge' label, and also pass all tests."]
+  github-api: ["https://docs.github.com/en/rest?apiVersion=2022-11-28", "We use the GitHub API to interact with the GitHub platform for creating pull requests, issues, and labels."]
+
+
+# This sets whether to create pull requests as drafts. If this is set to True, then all pull requests will be created as drafts and GitHub Actions will not be triggered.
+draft: False
+
+# This is a list of directories that Sweep will not be able to edit.
+blocked_dirs: [".github", "venv"]
