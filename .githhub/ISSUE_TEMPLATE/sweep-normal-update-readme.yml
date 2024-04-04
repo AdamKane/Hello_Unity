@@ -1,0 +1,21 @@
+name: Sweep - README Updates
+title: 'Sweep: Update README.md file'
+description: For small bugs, features, refactors, and tests to be handled by Sweep, an AI-powered junior developer.
+labels: sweep
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Details
+      description: Tell Sweep where and what to edit and provide enough context for a new developer to the codebase
+      placeholder: |
+        Bugs: The bug might be in ... file. Here are the logs: ...
+        Features: the new endpoint should use the ... class from ... file because it contains ... logic.
+        Refactors: We are migrating this function to ... version because ...
+      value: |
+        1. Review the codebase.
+        2. Make a list of all README.md files in the codebase repository.
+        3. One-by-one, review each README.md file and give each an accuracy score of 0-100%, based on how well it describes the contents of the code in the same directory. (An empty or nearly empty README.md file should be given a very low accuracy score near 0%)
+        4. Note the README.md file that has the lowest accuracy score, and thereby needs the most improvement.
+        5. Print the path of this target README.md file.
+        6. Finally, update the README.md file to improve its accuracy score.
